@@ -1,7 +1,7 @@
 # Casting Agency Capstone Project
 
 This is my final capstone project for Udacity's FullStack Web Developer Nanodegree.
-Web app can be accessed at [here](https://flaskcasting.herokuapp.com)
+Web app can be accessed at [here](https://castingagencyapi.onrender.com/)
 
 ##### Project Dependencies
 
