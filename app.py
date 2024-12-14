@@ -41,6 +41,7 @@ def create_app(test_config=None):
 
             return jsonify({"success": True, "movies": movies})
         except Exception as error:
+            print(error)
             abort(error)
 
     @app.route("/movies", methods=["POST"])
