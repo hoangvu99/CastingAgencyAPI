@@ -29,7 +29,6 @@ def create_app(test_config=None):
         return jsonify({"success": True, "description": "App is running."})
 
     @app.route("/movies", methods=["GET"])
-    @requires_auth("view:movies")
     def get_movies(jwt):
         try:
             movies = Movie.query.all()
