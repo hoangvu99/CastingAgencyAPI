@@ -16,7 +16,7 @@ Web app can be accessed at [here](https://flaskcasting.herokuapp.com)
 - Create a virtualenv in project directory
 - run `pip install -r requirements.txt` to install project dependencies
 - add `DATABASE_URL` to environment variables of your system.
-  On Unix systems, use `export DATABASE_URL=postgres://postgres:123@localhost:5432/casting_agency`
+  On Unix systems, use `export DATABASE_URL=postgres://username:password@host:port/database_name`
 - run `export FLASK_APP=app.py`
 - type `flask run` in terminal
 
