@@ -144,7 +144,7 @@ def requires_auth(permission=""):
                     401,
                 )
             check_permissions(permission, payload)
-            return f(payload, *args, **kwargs)
+            return f(*args, **kwargs)
 
         return wrapper
 

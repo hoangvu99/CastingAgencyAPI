@@ -29,7 +29,7 @@ def create_app(test_config=None):
         return jsonify({"success": True, "description": "App is running."})
 
     @app.route("/movies", methods=["GET"])
-    def get_movies(jwt):
+    def get_movies():
         try:
             movies = Movie.query.all()
 
@@ -45,7 +45,7 @@ def create_app(test_config=None):
 
     @app.route("/movies", methods=["POST"])
     @requires_auth("add:movies")
-    def add_movie(jwt):
+    def add_movie():
         try:
             body = request.get_json()
 
@@ -64,7 +64,7 @@ def create_app(test_config=None):
 
     @app.route("/movies/<int:movie_id>", methods=["DELETE"])
     @requires_auth("delete:movies")
-    def delete_movie(jwt, movie_id):
+    def delete_movie(movie_id):
         try:
             movie = Movie.query.get(movie_id)
             movie.delete()
@@ -74,7 +74,7 @@ def create_app(test_config=None):
 
     @app.route("/movies/<int:movie_id>", methods=["PATCH"])
     @requires_auth("update:movies")
-    def update_movie(jwt, movie_id):
+    def update_movie(movie_id):
         movie = Movie.query.get(movie_id)
 
         if movie:
@@ -101,7 +101,7 @@ def create_app(test_config=None):
 
     @app.route("/actors", methods=["GET"])
     @requires_auth("view:actors")
-    def get_actors(jwt):
+    def get_actors():
         actors = Actor.query.all()
 
         if not actors:
@@ -113,7 +113,7 @@ def create_app(test_config=None):
 
     @app.route("/actors", methods=["POST"])
     @requires_auth("add:actors")
-    def add_actor(jwt):
+    def add_actor():
         body = request.get_json(force=True)
 
         name = body.get("name")
@@ -136,7 +136,7 @@ def create_app(test_config=None):
 
     @app.route("/actors/<int:actor_id>", methods=["DELETE"])
     @requires_auth("delete:actors")
-    def delete_actors(jwt, actor_id):
+    def delete_actors(actor_id):
         actor = Actor.query.get(actor_id)
 
         if actor:
@@ -151,7 +151,7 @@ def create_app(test_config=None):
 
     @app.route("/actors/<int:actor_id>", methods=["PATCH"])
     @requires_auth("update:actor")
-    def update_actors(jwt, actor_id):
+    def update_actors(actor_id):
         actor = Actor.query.get(actor_id)
 
         if actor:
